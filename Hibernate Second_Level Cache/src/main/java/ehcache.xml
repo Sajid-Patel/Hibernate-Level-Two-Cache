@@ -1,0 +1,25 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+
+    <!-- Default cache configuration -->
+    <defaultCache 
+           maxEntriesLocalHeap="1000" 
+           eternal="false" 
+           timeToIdleSeconds="300" 
+           timeToLiveSeconds="600"
+           overflowToDisk="false" />
+
+    <!-- Define caches for Hibernate specific entities -->
+    <cache name="org.hibernate.cache.internal.StandardQueryCache"
+           maxEntriesLocalHeap="10000"
+           timeToLiveSeconds="120"/>
+
+    <cache name="org.hibernate.cache.spi.UpdateTimestampsCache"
+           maxEntriesLocalHeap="10000"
+           timeToLiveSeconds="120"/>
+           
+    <!-- Example cache for your entity -->
+    <cache name="com.yourpackage.YourEntity"
+           maxEntriesLocalHeap="1000"
+           timeToLiveSeconds="600"/>
+</ehcache>
